@@ -4,6 +4,8 @@
 int main(int argc, char **argvx) {
   int mdepth = atoi(argvx[1]);
 
+  std::cout << "mdepth: " << mdepth << std::endl;
+
   float cur, prev;
   std::cin >> prev;
   int cnt = 0;
@@ -14,6 +16,7 @@ int main(int argc, char **argvx) {
 
   for (int i = 0; i < mdepth - 1; i++) {
     std::cin >> cur;
+    // std::cout << cur << std::endl;
     cnt++;
     if (cur < threshold && state == 1) {
       vec.push_back(cnt);
@@ -27,7 +30,7 @@ int main(int argc, char **argvx) {
   }
 
   if (!(vec.size() > 6 && vec.size() % 2 == 0)) {
-    std::cerr << "failed" << std::endl;
+    std::cerr << "failed total length: " << vec.size() << std::endl;
     return 1;
   }
 
@@ -41,7 +44,7 @@ int main(int argc, char **argvx) {
   }
 
   if (bits.size() % 8 != 0) {
-    std::cerr << "failed" << std::endl;
+    std::cerr << "failed 8 bits" << std::endl;
     return 1;
   }
 
